@@ -2,36 +2,39 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Contacto - Galería de Arte</title>
+    <title>Galería de Arte "YisusArt"</title>
 </head>
 <body>
 <header>
     <nav style="text-align: center; font-weight: bolder">
-        <a href="index.html">Inicio</a>
-        <a href="galeria.html">Galería</a>
-        <a href="contacto.html">Contacto</a>
+        <a href="index.html"><img src="imagenes/button_inicio.png" width="158" height="66" alt="Boton Inicio"></a>
+        <a href="galeria.html"><img src="imagenes/button_galeria.png" width="181" height="66" alt="Boton Galeria"></a>
+        <a href="contacto.html"><img src="imagenes/button_contacto.png" width="205" height="66" alt="Boton Contacto"></a>
     </nav>
 </header>
 
-<div>
+<div style="text-align: left">
     <h1>Contacta con Nosotros</h1>
     <form>
-        <label for="nombre">Nombre:</label>
+        <label for="nombre">Nombre: </label>
         <input type="text" id="nombre" name="nombre" required>
         <br>
         <br>
-        <label for="email">Correo Electrónico:</label>
+        <label for="email">Correo Electrónico:  </label>
         <input type="email" id="email" name="email" required>
         <br>
         <br>
-        <label for="tipo-solicitud">Tipo de Solicitud:</label>
+        <label for="tipo-solicitud">Tipo de Solicitud:  </label>
         <select id="tipo-solicitud" name="tipo-solicitud" required>
             <option value="compra">Compra</option>
             <option value="consulta">Consulta</option>
             <option value="venta">Venta</option>
-        </select><br>
-
-        <label for="mensaje">Mensaje:</label><br>
+        </select>
+        <br>
+        <br>
+        <label for="mensaje">Déjanos tu mensaje aquí: </label>
+        <br>
+        <br>
         <textarea id="mensaje" name="mensaje" rows="4" cols="50" required></textarea><br>
 
         <input type="submit" value="Enviar">
@@ -39,4 +42,5 @@
 </div>
 
 </body>
+<footer style="font-style: italic; text-align: center">Galeria de Arte "YisusArt" Ltda. Derechos reservados 2024.</footer>
 </html>
