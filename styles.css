@@ -96,7 +96,7 @@ textarea {
     background-color: cornflowerblue;
 }
 
-.contenedor-grilla {
-    display: flex;
-    flex-wrap: nowrap;
+.row {
+    width: auto;
+    margin: auto auto;
 }
