@@ -95,8 +95,3 @@ textarea {
 #boton:hover {
     background-color: cornflowerblue;
 }
-
-.row {
-    width: auto;
-    margin: auto auto;
-}
