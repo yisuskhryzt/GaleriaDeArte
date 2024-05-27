@@ -4,16 +4,16 @@ document.addEventListener('DOMContentLoaded', () => {
     /* Detalles */
     document.querySelectorAll('.view-details').forEach(button => {
         button.addEventListener('click', (event) => {
-            const title = event.target.getAttribute('data-title');
-            const artist = event.target.getAttribute('data-artist');
-            const description = event.target.getAttribute('data-description');
+            const titulo = event.target.getAttribute('titulo');
+            const artista = event.target.getAttribute('artista');
+            const descripcion = event.target.getAttribute('descripcion');
 
-            document.getElementById('modalTitle').textContent = title;
-            document.getElementById('modalArtist').textContent = artist;
-            document.getElementById('modalDescription').textContent = description;
+            document.getElementById('tituloModal').textContent = titulo;
+            document.getElementById('artistaModal').textContent = artista;
+            document.getElementById('descripcionModal').textContent = descripcion;
 
-            const detailsModal = new bootstrap.Modal(document.getElementById('detailsModal'));
-            detailsModal.show();
+            const modalDetalles = new bootstrap.Modal(document.getElementById('modalDetalles'));
+            modalDetalles.show();
         });
     });
 
@@ -33,9 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('form');
-    form.addEventListener('submit', validateForm);
+    form.addEventListener('submit', validarForm);
 
-    function validateForm(event) {
+    function validarForm(event) {
         event.preventDefault();
         const nombre = form.querySelector('input[name="Nombre"]');
         const correo = form.querySelector('input[name="Correo"]');
@@ -44,34 +44,34 @@ document.addEventListener('DOMContentLoaded', () => {
         const mensaje = form.querySelector('textarea[name="mensaje"]');
         const tipoConsulta = form.querySelector('select[name="Tipo de consulta"]');
 
-        const isValid = validateFields([nombre, correo, direccion, telefono, mensaje, tipoConsulta]);
+        const esValido = validarCampos([nombre, correo, direccion, telefono, mensaje, tipoConsulta]);
 
-        if (isValid) {
-            showSuccessMessage();
+        if (esValido) {
+            formularioEnviado();
             form.submit();
         } else {
-            showErrorMessage();
+            formularioNoEnviado();
         }
     }
 
-    function validateFields(fields) {
-        let valid = true;
-        fields.forEach(field => {
-            if (!field.value.trim()) {
-                field.classList.add('is-invalid');
-                valid = false;
+    function validarCampos(campos) {
+        let valido = true;
+        campos.forEach(campos => {
+            if (!campos.value.trim()) {
+                campos.classList.add('is-invalid');
+                valido = false;
             } else {
-                field.classList.remove('is-invalid');
+                campos.classList.remove('is-invalid');
             }
         });
-        return valid;
+        return valido;
     }
 
-    function showSuccessMessage() {
+    function formularioEnviado() {
         alert('Éxito: El formulario se ha enviado correctamente.');
     }
 
-    function showErrorMessage() {
+    function formularioNoEnviado() {
         alert('Error: Por favor, complete todos los campos obligatorios.');
     }
 });
@@ -82,9 +82,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const mensaje = document.querySelector('textarea[name="mensaje"]');
     const tipoConsulta = document.querySelector('select[name="Tipo de consulta"]');
 
-    mensaje.addEventListener('input', updateTipoConsulta);
+    mensaje.addEventListener('input', cambiarTipoConsulta);
 
-    function updateTipoConsulta() {
+    function cambiarTipoConsulta() {
         const mensajeValue = mensaje.value.toLowerCase();
         if (mensajeValue.includes('compra')) {
             tipoConsulta.value = 'Compra';
